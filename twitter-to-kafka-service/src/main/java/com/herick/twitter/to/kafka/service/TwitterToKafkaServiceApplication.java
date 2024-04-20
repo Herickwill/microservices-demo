@@ -1,6 +1,6 @@
 package com.herick.twitter.to.kafka.service;
 
-import com.herick.twitter.to.kafka.service.config.TwitterToKafkaServiceConfigData;
+import com.herick.config.TwitterToKafkaServiceConfigData;
 import com.herick.twitter.to.kafka.service.runner.StreamRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

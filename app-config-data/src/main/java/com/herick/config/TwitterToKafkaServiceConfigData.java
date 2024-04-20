@@ -1,4 +1,4 @@
-package com.herick.twitter.to.kafka.service.config;
+package com.herick.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

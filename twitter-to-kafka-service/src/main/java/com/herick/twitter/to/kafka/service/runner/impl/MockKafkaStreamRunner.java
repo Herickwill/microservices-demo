@@ -1,6 +1,7 @@
 package com.herick.twitter.to.kafka.service.runner.impl;
 
-import com.herick.twitter.to.kafka.service.config.TwitterToKafkaServiceConfigData;
+
+import com.herick.config.TwitterToKafkaServiceConfigData;
 import com.herick.twitter.to.kafka.service.exception.TwitterToKafkaServiceException;
 import com.herick.twitter.to.kafka.service.listener.TwitterKafkaStatusListener;
 import com.herick.twitter.to.kafka.service.runner.StreamRunner;
