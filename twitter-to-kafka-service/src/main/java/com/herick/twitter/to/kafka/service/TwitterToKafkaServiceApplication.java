@@ -1,6 +1,7 @@
 package com.herick.twitter.to.kafka.service;
 
 import com.herick.config.TwitterToKafkaServiceConfigData;
+import com.herick.twitter.to.kafka.service.init.StreamInitializer;
 import com.herick.twitter.to.kafka.service.runner.StreamRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,14 +18,15 @@ public class TwitterToKafkaServiceApplication implements CommandLineRunner {
 
     private static final Logger LOG = LoggerFactory.getLogger(TwitterToKafkaServiceApplication.class);
 
-    private final TwitterToKafkaServiceConfigData twitterToKafkaServiceConfigData;
 
     private final StreamRunner streamRunner;
 
-    public TwitterToKafkaServiceApplication(TwitterToKafkaServiceConfigData configData,
+    private final StreamInitializer streamInitializer;
+
+    public TwitterToKafkaServiceApplication(StreamInitializer initializer,
                                             StreamRunner runner) {
-        this.twitterToKafkaServiceConfigData = configData;
         this.streamRunner = runner;
+        this.streamInitializer = initializer;
     }
 
     public static void main(String[] args) {
@@ -34,8 +36,7 @@ public class TwitterToKafkaServiceApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         LOG.info("App starts...");
-        LOG.info(Arrays.toString(twitterToKafkaServiceConfigData.getTwitterKeywords().toArray(new String[] {})));
-        LOG.info(twitterToKafkaServiceConfigData.getWelcomeMessage());
+        streamInitializer.init();
         streamRunner.start();
     }
 }
