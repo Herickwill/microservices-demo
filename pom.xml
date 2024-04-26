@@ -20,6 +20,7 @@
         <module>kafka/kafka-admin</module>
         <module>kafka/kafka-producer</module>
         <module>common-config</module>
+        <module>config-server</module>
     </modules>
     <packaging>pom</packaging>
     <description>Microservices demo project for Spring Boot</description>
@@ -32,6 +33,8 @@
         <avro.version>1.11.2</avro.version>
         <spring-kafka.version>3.0.9</spring-kafka.version>
         <spring-retry.version>2.0.2</spring-retry.version>
+        <spring-cloud.version>4.1.1</spring-cloud.version>
+        <spring-cloud-dependencies.version>2023.0.1</spring-cloud-dependencies.version>
         <kafka-avro-serializer.version>7.4.0</kafka-avro-serializer.version>
     </properties>
 
@@ -91,6 +94,33 @@
                 <artifactId>spring-boot-starter-test</artifactId>
                 <version>${spring-boot.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-config-server</artifactId>
+                <version>${spring-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-config</artifactId>
+                <version>${spring-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-bootstrap</artifactId>
+                <version>${spring-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.twitter4j</groupId>
