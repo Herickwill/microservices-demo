@@ -12,12 +12,14 @@ spring:
       server:
         git:
           uri: https://github.com/Herickwill/spring-cloud-config-server-repository
-          username:
-          password:
+          username: '{cipher}1cc4528fe24cb8c3b4044c06eef2e194fcfb7f521b2ebcfd69766b379374c5ab'
+          password: '{cipher}018a3b383ac24bcab4c7f57b5630b8b99e80b9fb4dd6b2e6bec603b152a8506ceb17c71fbda520e633e7ea721aeeb12be0e442ff0dd341893d680eb81240a0fb'
           clone-on-start: true
           try-master-branch: on
       fail-fast: true
   security:
     user:
       name: spring_cloud_user
-      password: '1234'
+      password: '{cipher}eeb2ff1c9986abc9f936a2d059e6296a3beccf1737206c3f4c198f45501f0379'
+encrypt:
+  key: ${MICROSERVICES_ENCRYPT_KEY}
