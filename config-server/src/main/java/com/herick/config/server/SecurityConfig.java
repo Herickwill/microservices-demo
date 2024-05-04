@@ -8,23 +8,21 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-//ENCRIPTAR ou AO CONT.
+@Configuration
+public class SecurityConfig {
 
-//@Configuration
-//public class SecurityConfig {
-//
-//    @Bean
-//    public SecurityFilterChain webSecurityCustomizer(HttpSecurity http) throws Exception {
-//        http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests(requests -> requests
-//                        .requestMatchers(new AntPathRequestMatcher("/actuator/**"),
-//                                new AntPathRequestMatcher("/encrypt/**"),
-//                                new AntPathRequestMatcher("/encrypt"),
-//                                new AntPathRequestMatcher("/decrypt/**"))
-//                        .permitAll()
-//                        .anyRequest()
-//                        .authenticated())
-//                .httpBasic(Customizer.withDefaults());
-//        return http.build();
-//    }
-//}
+    @Bean
+    public SecurityFilterChain webSecurityCustomizer(HttpSecurity http) throws Exception {
+        http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests(requests -> requests
+                        .requestMatchers(new AntPathRequestMatcher("/actuator/**"),
+                                new AntPathRequestMatcher("/encrypt/**"),
+                                new AntPathRequestMatcher("/encrypt"),
+                                new AntPathRequestMatcher("/decrypt/**"))
+                        .permitAll()
+                        .anyRequest()
+                        .authenticated())
+                .httpBasic(Customizer.withDefaults());
+        return http.build();
+    }
+}
 
